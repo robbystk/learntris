@@ -1,12 +1,27 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
+    // initialize board
+    char board[10][22];
+    int i, j;
+    for (i=0; i<10; i++) {
+        for (j=0; j<22; j++) {
+            board[i][j] = '.';
+        };
+    };
+
     while (1) {
         char command = getchar();
         switch (command) {
             case 'q': return 0;
             case 'p':
-                printf("%c\n", command);
+                for (j=0; j<22; j++) {
+                    for (i=0; i<10; i++) {
+                        printf("%c ", board[i][j]);
+                    };
+                    printf("\n");
+                };
                 break;
             case EOF: break;
             case '\n': break;
