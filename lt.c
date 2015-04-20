@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 void printboard(char board[10][22]);
+void printhelp();
 
 int main() {
     // initialize board
@@ -16,14 +17,18 @@ int main() {
     while (1) {
         char command = getchar();
         switch (command) {
-            case 'q': return 0;
+            case 'h':
+                printhelp();
+                break;
             case 'p':
                 printboard(board);
                 break;
+            case 'q': return 0;
             case EOF: break;
             case '\n': break;
             default:
-                fprintf(stderr, "Error: Invalid command '%c'\n", command);
+                fprintf(stderr, "Invalid command '%c' (h for help)\n", //
+                        command);
                 break;
         };
     };
@@ -38,4 +43,11 @@ void printboard(char board[10][22]) {
         };
         printf("\n");
     };
+};
+
+void printhelp() {
+     printf("\tg\tenter a new board state\n");
+     printf("\th\tdisplay this help\n");
+     printf("\tp\tdisplay the current state of the board\n");
+     printf("\tq\tquit\n");
 };
