@@ -6,8 +6,10 @@ int main() {
         switch (command) {
             case 'q': return 0;
             case 'p':
+                printf("%c\n", command);
                 break;
             case EOF: break;
+            case '\n': break;
             default:
                 fprintf(stderr, "Error: Invalid command '%c'\n", command);
                 break;
